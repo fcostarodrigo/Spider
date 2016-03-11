@@ -1,0 +1,24 @@
+{
+  "name": "rfc-spider",
+  "version": "1.0.0",
+  "description": "Create web crawlers",
+  "main": "src/rfc-spider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcostarodrigo/Spider.git"
+  },
+  "keywords": [
+    "web",
+    "crawler",
+    "spider"
+  ],
+  "author": "Rodrigo Fernandes da Costa",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/fcostarodrigo/Spider/issues"
+  },
+  "homepage": "https://github.com/fcostarodrigo/Spider#readme"
+}
