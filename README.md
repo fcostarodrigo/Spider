@@ -26,4 +26,4 @@ Call `crawl` to start crawling like this:
 
 ## License
 
-The source code is licensed under GPL v3. License is available [here](/LICENSE).
+The source code is licensed under GPL v3. License is available [here](/LICENSE.md).
