@@ -9,8 +9,8 @@ This module contains a single class called spider. The constructor of this class
 * `tasks`: Array of `{uri: url, parse: function (data, response, request)}` the `url` is passed to [http.request](https://nodejs.org/api/http.html#http_http_request_options_callback), `request` is the return of the [http.request](https://nodejs.org/api/http.html#http_http_request_options_callback) and the `response` is the argument of the callback.
 * `blacklist`: An array of urls to not be requested. Same format as the `url` in `tasks`.
 * `delay`: Delay between requests, defaults to 50.
-* `loop`: Blacklist requests already made.
-* `max`: Maximum number of connections.
+* `loop`: Blacklist requests already made. `true` to allow loops.
+* `max`: Maximum number of connections, defaults to 50.
 
 Import `spider` like this:
 
