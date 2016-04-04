@@ -59,7 +59,7 @@ function spider(self) {
             console.log(message.slice(0, 80));
         });
 
-        request.end();
+        request.end(task.body);
         
         return true;
     };
