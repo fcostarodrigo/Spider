@@ -6,8 +6,7 @@ This is a node module that allows you to create crawlers of websites.
 
 This module contains a single class called spider. The constructor of this class receives an object as argument. This object can have the following properties:
 
-* `tasks`: Array of `{uri: url, parse: function (data, response, request)}` the `url` is passed to [http.request](https://nodejs.org/api/http.html#http_http_request_options_callback), `request` is the return of the [http.request](https://nodejs.org/api/http.html#http_http_request_options_callback) and the `response` is the argument of the callback.
-* `blacklist`: An array of urls to not be requested. Same format as the `url` in `tasks`.
+* `tasks`: Array of `{uri: url, body: data, parse: function (data, response, request)}` the `uri` is passed to node's `http.request` API together with the optional body. Data, response and request comes from node, the data is the concatenated buffer.
 * `delay`: Delay between requests, defaults to 50.
 * `loop`: Blacklist requests already made. `true` to allow loops.
 * `max`: Maximum number of connections, defaults to 50.
