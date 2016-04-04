@@ -74,7 +74,7 @@ function spider(self) {
             }, self.delay);
 
             self.scheduled = true;
-        } else if (!self.connections && !self.tasks.lenght && self.exit) {
+        } else if (!self.connections && !self.tasks.length && self.exit) {
             self.exit();
         }
     };
