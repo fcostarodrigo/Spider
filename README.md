@@ -2,22 +2,33 @@
 
 This is a node module that allows you to create crawlers of websites.
 
+It basically manages multiple requests, and concatenate the chunked data from
+node before passing to the provided parser. The parser can add more tasks based
+on the data parsed. The number of concurrent requests is limited to avoid
+overload.
+
 ## Usage
 
-This module contains a single class called spider. The constructor of this class receives an object as argument. This object can have the following properties:
+This module contains a single class called Spider.
 
-* `tasks`: Array of `{uri: url, body: data, parse: function (data, response, request)}` the `uri` is passed to node's `http.request` API together with the optional body. Data, response and request comes from node, the data is the concatenated buffer.
-* `delay`: Delay between requests, defaults to 50.
-* `loop`: Blacklist requests already made. `true` to allow loops.
-* `max`: Maximum number of connections, defaults to 50.
+`new Spider(tasks[, max = 50])`
 
-Import `spider` like this:
+* `tasks`: Array of `{uri: string|object, parse, body}`
+* `parse`: `function(Buffer data, http.IncomingMessage response, http.ClientRequest
+ request)`
+* `max`: Maximum number of concurrent requests
 
-    var spider = require("rfc-spider");
+If `uri` is a string, then it parsed with `url.parse`.
+The object is then passed to `http.request`.
+A default `http.Agent` and headers are used if not present in object.
+The `body` is passed to `http.ClientRequest.end` method, this can be useful for
+POST.
 
-Call `crawl` to start crawling like this:
+The parse function receives the concatenated data from multiple data events.
+It can add more tasks based on the data parsed.
+You can use the method `toString` to convert the data to a string.
 
-    spider({tasks: tasks, ...}).crawl();
+See the example in the code for more details.
 
 ## Install
 
